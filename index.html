@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rythu Mitra – Indian Farmers Government Schemes Portal</title>
+  <meta name="description" content="Discover Indian central and state agricultural government schemes based on your state, district, village, and landholding.">
+
+  <!-- Favicon icon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌾</text></svg>">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="lang-en">
+
+  <!-- ==========================================================================
+       Main Navigation Bar
+       ========================================================================== -->
+  <nav class="navbar navbar-expand-lg main-navbar">
+    <div class="container">
+      <a class="brand-wrapper" href="index.html">
+        <div class="brand-logo-icon">
+          <i class="fas fa-wheat-awn"></i>
+        </div>
+        <div>
+          <h1 class="brand-title" data-i18n="brand_name">Rythu Mitra</h1>
+          <p class="brand-tagline" data-i18n="brand_tagline">Your Farming Partner, Your Government Benefits</p>
+        </div>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-1 my-2 my-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" href="#home" data-i18n="nav_home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#finder" data-i18n="nav_find_schemes">Find Schemes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#schemes-results-section" data-i18n="nav_explore">Explore Schemes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#how-it-works" data-i18n="nav_how_it_works">How It Works</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about" data-i18n="nav_about">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact" data-i18n="nav_contact">Contact</a>
+          </li>
+
+          <!-- Language Selector Pills -->
+          <li class="nav-item ms-lg-2 my-2 my-lg-0">
+            <div class="lang-selector-group" role="group" aria-label="Language selection">
+              <button type="button" class="lang-btn active" data-lang="en">EN</button>
+              <button type="button" class="lang-btn" data-lang="te">తెలుగు</button>
+              <button type="button" class="lang-btn" data-lang="hi">हिन्दी</button>
+            </div>
+          </li>
+
+          <!-- Admin Portal Link -->
+          <li class="nav-item ms-lg-2">
+            <a class="btn-admin-nav text-decoration-none" href="admin.html">
+              <i class="fas fa-user-shield"></i>
+              <span data-i18n="nav_admin">Admin Portal</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ==========================================================================
+       Hero Section
+       ========================================================================== -->
+  <header id="home" class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="container position-relative">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-7">
+          <div class="hero-badge">
+            <i class="fas fa-seedling"></i>
+            <span data-i18n="hero_badge">Empowering 140+ Million Indian Farmers</span>
+          </div>
+          <h2 class="hero-title" data-i18n="hero_title">
+            Discover Government Schemes Available for You
+          </h2>
+          <p class="hero-desc" data-i18n="hero_description">
+            Find government benefits based on your location and agricultural land. Access central and state agricultural subsidies, direct income support, crop insurance, and irrigation assistance in one place.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#finder" class="btn-hero-primary">
+              <i class="fas fa-magnifying-glass-location"></i>
+              <span data-i18n="btn_find_schemes">Find My Schemes</span>
+            </a>
+            <a href="#schemes-results-section" id="btn-browse-all" class="btn-hero-secondary">
+              <i class="fas fa-list-check"></i>
+              <span data-i18n="btn_explore_all">Browse All Schemes</span>
+            </a>
+          </div>
+
+          <div class="hero-stats-row">
+            <div class="hero-stat-card">
+              <span class="hero-stat-num" data-i18n="stat_states">28 States & 8 UTs</span>
+              <span class="hero-stat-label" data-i18n="stat_states_sub">Pan-India Coverage</span>
+            </div>
+            <div class="hero-stat-card">
+              <span class="hero-stat-num" data-i18n="stat_schemes">Demonstration Schemes</span>
+              <span class="hero-stat-label" data-i18n="stat_schemes_sub">Curated & Verified</span>
+            </div>
+            <div class="hero-stat-card">
+              <span class="hero-stat-num" data-i18n="stat_free">100% Free</span>
+              <span class="hero-stat-label" data-i18n="stat_free_sub">For Every Indian Farmer</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="hero-visual-card">
+            <img src="assets/images/farmer-hero.svg" alt="Indian Farmer in lush green agricultural field with solar pump" class="hero-farmer-illustration">
+            <div class="floating-scheme-badge">
+              <div class="icon">
+                <i class="fas fa-hand-holding-dollar"></i>
+              </div>
+              <div>
+                <strong class="d-block text-dark small">PM-KISAN & State Subsidies</strong>
+                <span class="text-muted" style="font-size: 0.76rem;">Instant Landholding & Location Matching</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       Farmer Information Form Section (Central Search Engine)
+       ========================================================================== -->
+  <section id="finder" class="form-card-container">
+    <div class="container">
+      <div class="farmer-form-card">
+        <div class="form-header">
+          <div class="form-header-badge">
+            <i class="fas fa-tractor"></i>
+            <span>Scheme Matching Engine</span>
+          </div>
+          <h2 class="form-title" data-i18n="form_section_title">Enter Your Farming Details</h2>
+          <p class="form-subtitle" data-i18n="form_section_subtitle">
+            Tell us your location and landholding to see tailored government schemes for your farm.
+          </p>
+        </div>
+
+        <form id="farmer-scheme-form" novalidate>
+          <div class="row g-3">
+            <!-- 1. State Dropdown -->
+            <div class="col-md-6 col-lg-3">
+              <label for="farmer-state" class="form-label">
+                <i class="fas fa-map text-success"></i>
+                <span data-i18n="label_state">State / Union Territory</span>
+                <span class="req">*</span>
+              </label>
+              <div class="input-icon-wrapper">
+                <i class="fas fa-location-dot input-icon"></i>
+                <select id="farmer-state" class="form-select" required>
+                  <option value="" data-i18n="select_state_placeholder">-- Select Your State --</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- 2. District Dropdown (Dynamically Populated) -->
+            <div class="col-md-6 col-lg-3">
+              <label for="farmer-district" class="form-label">
+                <i class="fas fa-city text-success"></i>
+                <span data-i18n="label_district">District</span>
+                <span class="req">*</span>
+              </label>
+              <div class="input-icon-wrapper">
+                <i class="fas fa-building-wheat input-icon"></i>
+                <select id="farmer-district" class="form-select" disabled required>
+                  <option value="" data-i18n="select_district_placeholder">-- Select District --</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- 3. Village Text Input (Supports Telugu, Hindi, English) -->
+            <div class="col-md-6 col-lg-3">
+              <label for="farmer-village" class="form-label">
+                <i class="fas fa-house-chimney text-success"></i>
+                <span data-i18n="label_village">Village / Gram Panchayat</span>
+                <span class="req">*</span>
+              </label>
+              <div class="input-icon-wrapper">
+                <i class="fas fa-home input-icon"></i>
+                <input type="text" id="farmer-village" class="form-control" placeholder="e.g., Rampur, Kothapalli, Shivajinagar" data-i18n-placeholder="placeholder_village" required>
+              </div>
+            </div>
+
+            <!-- 4. Agricultural Land in Acres -->
+            <div class="col-md-6 col-lg-3">
+              <label for="farmer-land" class="form-label">
+                <i class="fas fa-ruler-combined text-success"></i>
+                <span data-i18n="label_land">Agricultural Land (in Acres)</span>
+                <span class="req">*</span>
+              </label>
+              <div class="input-icon-wrapper">
+                <i class="fas fa-vector-square input-icon"></i>
+                <input type="number" step="0.01" min="0.01" id="farmer-land" class="form-control" placeholder="e.g., 2.5" data-i18n-placeholder="placeholder_land" required>
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="col-12 mt-4">
+              <div class="row g-2 justify-content-end">
+                <div class="col-md-3 col-sm-4">
+                  <button type="button" id="btn-reset-form" class="btn-reset-form">
+                    <i class="fas fa-rotate-left me-1"></i>
+                    <span data-i18n="btn_reset_form">Clear Form</span>
+                  </button>
+                </div>
+                <div class="col-md-5 col-sm-8">
+                  <button type="submit" class="btn-search-schemes">
+                    <i class="fas fa-search"></i>
+                    <span data-i18n="btn_search_schemes">Search Available Schemes</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       Government Disclaimer Alert Banner
+       ========================================================================== -->
+  <div class="container">
+    <div class="gov-disclaimer-card">
+      <div class="gov-disclaimer-icon">
+        <i class="fas fa-shield-halved"></i>
+      </div>
+      <div>
+        <h4 class="gov-disclaimer-title" data-i18n="disclaimer_banner_title">Official Government Information Disclaimer</h4>
+        <p class="gov-disclaimer-text" data-i18n="disclaimer_banner_text">
+          Rythu Mitra is an independent informational and digital assistance portal built for Indian farmers. We are not a government agency. Schemes, guidelines, and benefits are subject to official government notifications. Always apply and verify details on the official government portals linked in each scheme.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       Schemes Results Section
+       ========================================================================== -->
+  <section id="schemes-results-section" class="py-4">
+    <div class="container">
+      <!-- Section Header -->
+      <div class="results-header-wrapper">
+        <div>
+          <h2 class="results-title" data-i18n="results_title">Recommended Government Schemes</h2>
+          <p class="results-subtitle" data-i18n="results_subtitle">Schemes matching your location and landholding details.</p>
+        </div>
+        <div>
+          <div id="active-profile-pill" class="active-profile-pill d-none"></div>
+        </div>
+      </div>
+
+      <!-- Filter Toolbar -->
+      <div class="filter-toolbar">
+        <div class="filter-pills-group" role="tablist">
+          <button type="button" class="filter-tab-btn active" data-filter-type="all" data-i18n="filter_all">All Schemes</button>
+          <button type="button" class="filter-tab-btn" data-filter-type="nationwide" data-i18n="filter_nationwide">Nationwide</button>
+          <button type="button" class="filter-tab-btn" data-filter-type="state" data-i18n="filter_state">State Specific</button>
+          <button type="button" class="filter-tab-btn" data-filter-type="district" data-i18n="filter_district">District Specific</button>
+        </div>
+
+        <div class="d-flex align-items-center gap-3">
+          <span id="schemes-count-badge" class="badge bg-success-subtle text-success border border-success-subtle px-3 py-2 rounded-pill fw-bold">
+            Loading schemes...
+          </span>
+
+          <div class="search-input-box">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" id="scheme-search-input" class="form-control" placeholder="Search schemes by keyword or title..." data-i18n-placeholder="search_placeholder">
+          </div>
+        </div>
+      </div>
+
+      <!-- Scheme Cards Container -->
+      <div id="schemes-grid-container" class="schemes-grid">
+        <!-- Dynamically populated via main.js -->
+      </div>
+
+      <!-- Empty State -->
+      <div id="empty-state-container" class="empty-state-box d-none">
+        <div class="empty-state-icon">
+          <i class="fas fa-magnifying-glass-minus"></i>
+        </div>
+        <h4 class="fw-bold text-dark mb-2" data-i18n="no_results_title">No Matching Schemes Found</h4>
+        <p class="text-muted small mb-4" data-i18n="no_results_desc">
+          We could not find schemes matching all your exact filter criteria. Try clearing filters or checking nationwide schemes.
+        </p>
+        <button type="button" class="btn btn-outline-success rounded-pill px-4" onclick="clearFarmerForm()" data-i18n="btn_reset_filters">
+          View All Available Schemes
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       How It Works Section
+       ========================================================================== -->
+  <section id="how-it-works" class="section-padding bg-white">
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="section-badge">Simple 3-Step Process</span>
+        <h2 class="section-heading" data-i18n="hiw_title">How Rythu Mitra Works for You</h2>
+        <p class="section-lead" data-i18n="hiw_subtitle">Discover and access your rightful agricultural entitlements in three simple steps.</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="hiw-card">
+            <div class="hiw-step-icon">
+              <i class="fas fa-clipboard-list"></i>
+            </div>
+            <h3 class="hiw-title" data-i18n="hiw_step1_title">1. Enter Your Land & Location</h3>
+            <p class="hiw-desc" data-i18n="hiw_step1_desc">Provide your State, District, Village, and agricultural land in acres. No registration or personal Aadhaar required.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="hiw-card">
+            <div class="hiw-step-icon">
+              <i class="fas fa-microchip"></i>
+            </div>
+            <h3 class="hiw-title" data-i18n="hiw_step2_title">2. Instant Intelligent Matching</h3>
+            <p class="hiw-desc" data-i18n="hiw_step2_desc">Our engine filters central, state, and district schemes, instantly identifying which ones match your landholding.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="hiw-card">
+            <div class="hiw-step-icon">
+              <i class="fas fa-file-circle-check"></i>
+            </div>
+            <h3 class="hiw-title" data-i18n="hiw_step3_title">3. Direct Official Guidance</h3>
+            <p class="hiw-desc" data-i18n="hiw_step3_desc">Read simplified benefits, required documents checklist, and get one-click direct links to authentic government portals.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       About Us Section
+       ========================================================================== -->
+  <section id="about" class="section-padding">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <span class="section-badge" data-i18n="nav_about">About Us</span>
+          <h2 class="section-heading" data-i18n="about_title">About Rythu Mitra</h2>
+          <p class="text-success fw-bold" data-i18n="about_subtitle">Bridging the gap between Indian farmers and government welfare programs.</p>
+          <p class="text-muted" data-i18n="about_p1">
+            Millions of farmers across India miss out on crucial central and state agricultural subsidies, crop insurance benefits, and input assistance simply due to lack of accessible, localized information.
+          </p>
+          <p class="text-muted" data-i18n="about_p2">
+            Rythu Mitra (meaning 'Farmer's Friend') was created to provide a simple, clean, and multilingual portal where any farmer—regardless of tech literacy—can discover all benefits they are entitled to in their native language.
+          </p>
+        </div>
+        <div class="col-lg-6">
+          <div class="row g-3">
+            <div class="col-12">
+              <div class="p-3 bg-white rounded-3 border shadow-sm d-flex gap-3 align-items-start">
+                <div class="text-success fs-3"><i class="fas fa-language"></i></div>
+                <div>
+                  <h4 class="h6 fw-bold mb-1" data-i18n="about_f1_title">Multilingual First</h4>
+                  <p class="small text-muted mb-0" data-i18n="about_f1_desc">Full support for Telugu, Hindi, and English so farmers can comfortably navigate in their preferred tongue.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="p-3 bg-white rounded-3 border shadow-sm d-flex gap-3 align-items-start">
+                <div class="text-success fs-3"><i class="fas fa-chart-area"></i></div>
+                <div>
+                  <h4 class="h6 fw-bold mb-1" data-i18n="about_f2_title">Accurate Land Filtering</h4>
+                  <p class="small text-muted mb-0" data-i18n="about_f2_desc">Differentiates between small & marginal farmers (under 5 acres) and large holdings according to official norms.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="p-3 bg-white rounded-3 border shadow-sm d-flex gap-3 align-items-start">
+                <div class="text-success fs-3"><i class="fas fa-shield-cat"></i></div>
+                <div>
+                  <h4 class="h6 fw-bold mb-1" data-i18n="about_f3_title">Local & Offline-Ready</h4>
+                  <p class="small text-muted mb-0" data-i18n="about_f3_desc">Runs completely in your browser with LocalStorage. Fast, zero tracking, and lightweight on rural internet.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       Contact & Helpline Section
+       ========================================================================== -->
+  <section id="contact" class="section-padding bg-white">
+    <div class="container">
+      <!-- Kisan Call Center Helpline Banner -->
+      <div class="helpline-box">
+        <div>
+          <span class="badge bg-warning text-dark px-3 py-1 rounded-pill mb-2 fw-bold">Official Government Helpline</span>
+          <h3 class="h4 fw-bold text-white mb-1" data-i18n="kisan_helpline_title">Kisan Call Center (Government of India)</h3>
+          <p class="text-light mb-0 small" data-i18n="kisan_helpline_desc">Toll-free agricultural query assistance available in 22 languages, 6:00 AM to 10:00 PM all 7 days.</p>
+        </div>
+        <div>
+          <a href="tel:18001801551" class="helpline-number">
+            <i class="fas fa-phone-volume"></i>
+            <span data-i18n="kisan_number">Toll Free: 1800-180-1551</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Feedback / Query Form -->
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="p-4 p-md-5 bg-surface border rounded-4 shadow-sm">
+            <div class="text-center mb-4">
+              <h3 class="h4 fw-bold text-dark" data-i18n="feedback_title">Send Us a Message</h3>
+              <p class="text-muted small" data-i18n="contact_subtitle">Need assistance with schemes or government applications? We are here to guide you.</p>
+            </div>
+
+            <form id="farmer-contact-form">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label for="contact-name" class="form-label" data-i18n="label_name">Your Name</label>
+                  <input type="text" id="contact-name" class="form-control" placeholder="e.g., Ramesh Kumar / సుబ్బారావు" data-i18n-placeholder="placeholder_name" required>
+                </div>
+                <div class="col-md-6">
+                  <label for="contact-phone" class="form-label" data-i18n="label_phone">Phone / WhatsApp Number</label>
+                  <input type="tel" id="contact-phone" class="form-control" placeholder="e.g., 9876543210" data-i18n-placeholder="placeholder_phone" required>
+                </div>
+                <div class="col-12">
+                  <label for="contact-query" class="form-label" data-i18n="label_query">Your Question or Scheme Feedback</label>
+                  <textarea id="contact-query" rows="3" class="form-control" placeholder="Tell us which scheme you are looking for..." data-i18n-placeholder="placeholder_query" required></textarea>
+                </div>
+                <div class="col-12 text-center mt-3">
+                  <button type="submit" class="btn btn-success px-5 py-2 rounded-pill fw-bold" data-i18n="btn_send_message">
+                    Submit Message
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       Scheme Details Modal (Interactive Popup)
+       ========================================================================== -->
+  <div class="modal fade" id="schemeDetailsModal" tabindex="-1" aria-labelledby="modalSchemeTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div>
+            <span class="badge bg-warning text-dark px-2 py-1 rounded-pill small mb-1 fw-bold">Government Scheme</span>
+            <h3 class="modal-title" id="modalSchemeTitle">Scheme Details</h3>
+          </div>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body">
+          <!-- Jurisdiction & Land requirement strip -->
+          <div class="modal-info-grid">
+            <div class="modal-info-item">
+              <strong data-i18n="modal_state">Applicable State:</strong>
+              <span id="modalState">-</span>
+            </div>
+            <div class="modal-info-item">
+              <strong data-i18n="modal_district">Applicable District:</strong>
+              <span id="modalDistrict">-</span>
+            </div>
+            <div class="modal-info-item">
+              <strong data-i18n="modal_village">Applicable Village:</strong>
+              <span id="modalVillage">-</span>
+            </div>
+            <div class="modal-info-item">
+              <strong data-i18n="modal_land_req">Landholding Requirement:</strong>
+              <span id="modalLandReq">-</span>
+            </div>
+          </div>
+
+          <!-- Description -->
+          <h4 class="modal-section-title">
+            <i class="fas fa-file-lines"></i>
+            <span data-i18n="tab_overview">Overview</span>
+          </h4>
+          <p id="modalDescription" class="text-secondary mb-3"></p>
+
+          <!-- Benefits & Financial assistance -->
+          <h4 class="modal-section-title">
+            <i class="fas fa-hand-holding-dollar"></i>
+            <span data-i18n="modal_benefits_title">Financial & Material Benefits</span>
+          </h4>
+          <div id="modalBenefits" class="modal-list-box mb-3"></div>
+
+          <!-- Eligibility criteria -->
+          <h4 class="modal-section-title">
+            <i class="fas fa-user-check"></i>
+            <span data-i18n="modal_eligibility_title">Eligibility Criteria</span>
+          </h4>
+          <div id="modalEligibility" class="modal-list-box mb-3"></div>
+
+          <!-- Documents required -->
+          <h4 class="modal-section-title">
+            <i class="fas fa-folder-open"></i>
+            <span data-i18n="modal_docs_title">Documents Required for Application</span>
+          </h4>
+          <div id="modalDocuments" class="modal-list-box mb-3"></div>
+
+          <!-- Application Procedure -->
+          <h4 class="modal-section-title">
+            <i class="fas fa-arrow-right-to-bracket"></i>
+            <span data-i18n="modal_process_title">Application Procedure</span>
+          </h4>
+          <div id="modalApplyProcess" class="modal-list-box mb-3"></div>
+
+          <!-- Official Government Verification Disclaimer -->
+          <div class="alert alert-secondary d-flex align-items-start gap-2 mt-4 small mb-0">
+            <i class="fas fa-circle-info text-primary mt-1"></i>
+            <div>
+              <strong data-i18n="modal_disclaimer_notice">Official Verification Required:</strong>
+              <span data-i18n="modal_disclaimer_text">
+                Rythu Mitra provides information for guidance purposes. Final sanctioning of subsidies or financial assistance is subject to verification by the respective Department of Agriculture and official government portals.
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary rounded-pill px-4" data-bs-dismiss="modal" data-i18n="btn_close">Close</button>
+          <a id="modalOfficialLinkBtn" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-success rounded-pill px-4">
+            <span data-i18n="btn_visit_official">Open Official Government Portal</span>
+            <i class="fas fa-external-link-alt ms-1"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       Main Footer
+       ========================================================================== -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <div class="d-flex align-items-center gap-2 mb-2">
+            <div class="brand-logo-icon" style="width: 36px; height: 36px; font-size: 1.1rem;">
+              <i class="fas fa-wheat-awn"></i>
+            </div>
+            <h4 class="footer-brand-title mb-0" data-i18n="brand_name">Rythu Mitra</h4>
+          </div>
+          <p class="footer-tagline" data-i18n="brand_tagline">Your Farming Partner, Your Government Benefits</p>
+          <p class="small text-light opacity-75" data-i18n="footer_tagline">Dedicated to the prosperity of Indian Annadatas (Farmers).</p>
+        </div>
+
+        <div class="col-6 col-lg-2">
+          <h5 class="footer-heading" data-i18n="footer_quick_links">Quick Links</h5>
+          <ul class="footer-links">
+            <li><a href="#home" data-i18n="nav_home">Home</a></li>
+            <li><a href="#finder" data-i18n="nav_find_schemes">Find Schemes</a></li>
+            <li><a href="#schemes-results-section" data-i18n="nav_explore">Explore Schemes</a></li>
+            <li><a href="#how-it-works" data-i18n="nav_how_it_works">How It Works</a></li>
+            <li><a href="#about" data-i18n="nav_about">About Us</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-lg-3">
+          <h5 class="footer-heading" data-i18n="footer_schemes">Popular Schemes</h5>
+          <ul class="footer-links">
+            <li><a href="#schemes-results-section">PM-KISAN Samman Nidhi</a></li>
+            <li><a href="#schemes-results-section">YSR Rythu Bharosa (AP)</a></li>
+            <li><a href="#schemes-results-section">Rythu Bandhu (Telangana)</a></li>
+            <li><a href="#schemes-results-section">PM Fasal Bima (PMFBY)</a></li>
+            <li><a href="#schemes-results-section">SMAM Machinery Subsidy</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3">
+          <h5 class="footer-heading">Portals & Administration</h5>
+          <ul class="footer-links">
+            <li>
+              <a href="admin.html" class="fw-bold text-warning">
+                <i class="fas fa-lock me-1"></i>
+                <span data-i18n="footer_admin_link">Admin Management Portal</span>
+              </a>
+            </li>
+            <li class="mt-2">
+              <span class="small d-block text-light opacity-75">Languages Supported:</span>
+              <div class="d-flex gap-2 mt-1">
+                <button type="button" class="btn btn-sm btn-outline-light py-0 px-2 lang-select-btn" data-lang="en">English</button>
+                <button type="button" class="btn btn-sm btn-outline-light py-0 px-2 lang-select-btn" data-lang="te">తెలుగు</button>
+                <button type="button" class="btn btn-sm btn-outline-light py-0 px-2 lang-select-btn" data-lang="hi">हिन्दी</button>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="mb-1" data-i18n="footer_rights">© 2026 Rythu Mitra Portal. Static Frontend Demonstration Edition. Built for Indian Farmers.</p>
+        <p class="mb-0 text-white-50" style="font-size: 0.76rem;" data-i18n="footer_gov_note">Designed with pride for the Indian farming community. No backend servers, external databases, or third-party tracking.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top floating button -->
+  <button id="btn-back-to-top" class="btn-floating-top" title="Back to top" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Toast Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Bootstrap 5.3 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+  <!-- Application Logic Scripts -->
+  <script src="js/translations.js"></script>
+  <script src="js/schemes.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

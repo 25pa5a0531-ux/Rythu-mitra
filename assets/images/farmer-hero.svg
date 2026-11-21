@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7" />
+      <stop offset="60%" stop-color="#38bdf8" />
+      <stop offset="90%" stop-color="#fef08a" />
+      <stop offset="100%" stop-color="#fdba74" />
+    </linearGradient>
+    <linearGradient id="sunGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="100%" stop-color="#f59e0b" />
+    </linearGradient>
+    <linearGradient id="fieldGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#84cc16" />
+      <stop offset="100%" stop-color="#4d7c0f" />
+    </linearGradient>
+    <linearGradient id="fieldGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#a3e635" />
+      <stop offset="100%" stop-color="#15803d" />
+    </linearGradient>
+    <linearGradient id="cropGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#facc15" />
+      <stop offset="100%" stop-color="#ca8a04" />
+    </linearGradient>
+  </defs>
+
+  <!-- Sky -->
+  <rect width="600" height="400" fill="url(#skyGrad)" />
+
+  <!-- Morning Sun -->
+  <circle cx="450" cy="140" r="60" fill="url(#sunGrad)" opacity="0.9" />
+  <circle cx="450" cy="140" r="75" fill="#fef08a" opacity="0.25" />
+
+  <!-- Distant Hills / Trees -->
+  <path d="M0 240 Q 120 200, 240 230 T 480 220 T 600 240 L 600 400 L 0 400 Z" fill="#14532d" opacity="0.6" />
+  <path d="M0 260 Q 150 235, 300 255 T 600 250 L 600 400 L 0 400 Z" fill="#166534" />
+
+  <!-- Lush Agricultural Terraced Fields -->
+  <path d="M0 280 Q 200 255, 400 285 T 600 275 L 600 400 L 0 400 Z" fill="url(#fieldGrad1)" />
+  <path d="M0 310 Q 180 290, 360 320 T 600 305 L 600 400 L 0 400 Z" fill="url(#fieldGrad2)" />
+
+  <!-- Field Furrows / Contours -->
+  <path d="M 0 350 Q 250 330, 600 360" stroke="#166534" stroke-width="4" fill="none" opacity="0.5" />
+  <path d="M 0 375 Q 300 355, 600 385" stroke="#14532d" stroke-width="5" fill="none" opacity="0.5" />
+
+  <!-- Crop stalks in foreground (Wheat/Paddy) -->
+  <g fill="none" stroke="url(#cropGrad)" stroke-width="3" stroke-linecap="round">
+    <path d="M 50 400 Q 55 350, 45 320" />
+    <path d="M 45 320 L 40 310 M 45 320 L 52 308 M 45 330 L 38 322" />
+    <path d="M 70 400 Q 75 340, 80 315" />
+    <path d="M 80 315 L 85 305 M 80 315 L 75 302 M 80 325 L 87 318" />
+    <path d="M 520 400 Q 515 345, 525 315" />
+    <path d="M 525 315 L 530 305 M 525 315 L 518 304" />
+    <path d="M 545 400 Q 550 340, 540 310" />
+    <path d="M 540 310 L 535 300 M 540 310 L 548 298" />
+  </g>
+
+  <!-- Modern Solar Water Pump (Clean Green Agriculture) -->
+  <g transform="translate(420, 240)">
+    <!-- Stand -->
+    <line x1="25" y1="50" x2="25" y2="90" stroke="#334155" stroke-width="4" />
+    <line x1="15" y1="90" x2="35" y2="90" stroke="#1e293b" stroke-width="4" />
+    <!-- Panel angled -->
+    <polygon points="0,50 50,30 65,45 15,65" fill="#1e3a8a" stroke="#60a5fa" stroke-width="1.5" />
+    <line x1="25" y1="40" x2="40" y2="55" stroke="#60a5fa" stroke-width="1" />
+  </g>
+
+  <!-- Indian Farmer Silhouette / Stylized Figure with Turban & Sprout -->
+  <g transform="translate(140, 180)">
+    <!-- Torso (Kurta) -->
+    <path d="M 60 110 L 40 180 L 100 180 L 80 110 Z" fill="#ffffff" />
+    <path d="M 40 180 L 35 220 L 55 220 L 60 180 Z" fill="#f8fafc" />
+    <path d="M 80 180 L 85 220 L 105 220 L 100 180 Z" fill="#f8fafc" />
+    <!-- Traditional Shawl/Angavastram (Green) -->
+    <path d="M 45 115 Q 70 145, 60 185" stroke="#15803d" stroke-width="8" fill="none" stroke-linecap="round" />
+    <!-- Arms -->
+    <path d="M 45 115 Q 25 140, 30 165" stroke="#d97706" stroke-width="10" stroke-linecap="round" fill="none" />
+    <path d="M 75 115 Q 95 135, 105 155" stroke="#d97706" stroke-width="10" stroke-linecap="round" fill="none" />
+    <!-- Head -->
+    <circle cx="70" cy="85" r="16" fill="#d97706" />
+    <!-- Traditional Indian Farmer Turban (Pagri / Thalapaga) in Gold/Orange -->
+    <path d="M 50 82 Q 70 60, 90 75 Q 85 55, 65 58 Q 50 65, 50 82 Z" fill="#f59e0b" />
+    <path d="M 54 75 Q 70 68, 86 78" stroke="#d97706" stroke-width="3" fill="none" />
+    <polygon points="85,65 95,50 88,75" fill="#f59e0b" />
+    <!-- Green Sprout / Seedling in Hand -->
+    <path d="M 105 155 Q 115 140, 120 135" stroke="#15803d" stroke-width="3" fill="none" />
+    <ellipse cx="123" cy="132" rx="6" ry="3" fill="#22c55e" transform="rotate(-30 123 132)" />
+    <ellipse cx="116" cy="136" rx="5" ry="2.5" fill="#4ade80" transform="rotate(40 116 136)" />
+  </g>
+
+  <!-- Birds in the sky -->
+  <path d="M 100 80 Q 110 70, 120 80 Q 130 70, 140 80" stroke="#047857" stroke-width="2" fill="none" opacity="0.6" />
+  <path d="M 130 95 Q 138 87, 146 95 Q 154 87, 162 95" stroke="#047857" stroke-width="1.8" fill="none" opacity="0.5" />
+</svg>

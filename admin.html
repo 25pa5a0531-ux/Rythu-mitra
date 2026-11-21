@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rythu Mitra – Admin Schemes Management Portal</title>
+  <meta name="description" content="Admin Dashboard for managing, creating, editing, and publishing Indian agricultural government schemes.">
+
+  <!-- Favicon icon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="lang-en bg-surface">
+
+  <!-- Top Navigation for Admin Portal -->
+  <nav class="navbar navbar-expand-lg bg-white border-bottom shadow-sm py-2">
+    <div class="container-fluid px-4">
+      <a class="brand-wrapper" href="index.html">
+        <div class="brand-logo-icon" style="width: 38px; height: 38px; font-size: 1.2rem;">
+          <i class="fas fa-wheat-awn"></i>
+        </div>
+        <div>
+          <h1 class="brand-title" style="font-size: 1.25rem;" data-i18n="brand_name">Rythu Mitra</h1>
+          <p class="brand-tagline" style="font-size: 0.7rem;">Admin Scheme Management Console</p>
+        </div>
+      </a>
+
+      <div class="d-flex align-items-center gap-3 ms-auto">
+        <!-- Language Selector -->
+        <div class="lang-selector-group" role="group">
+          <button type="button" class="lang-btn active" data-lang="en">EN</button>
+          <button type="button" class="lang-btn" data-lang="te">తెలుగు</button>
+          <button type="button" class="lang-btn" data-lang="hi">हिन्दी</button>
+        </div>
+
+        <!-- Back to Farmer Portal -->
+        <a href="index.html" class="btn btn-outline-success btn-sm rounded-pill px-3 fw-semibold">
+          <i class="fas fa-home me-1"></i>
+          <span data-i18n="btn_back_home">← Back to Farmer Portal</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ==========================================================================
+       VIEW 1: Admin Login Screen
+       ========================================================================== -->
+  <div id="admin-login-view" class="admin-login-wrap">
+    <div class="admin-card">
+      <div class="admin-card-header">
+        <div class="admin-icon-circle">
+          <i class="fas fa-user-shield"></i>
+        </div>
+        <h2 class="h4 fw-bold text-dark mb-1" data-i18n="admin_login_title">Administrator Portal Login</h2>
+        <p class="text-muted small mb-0" data-i18n="admin_login_subtitle">Manage, add, update, and publish agricultural schemes.</p>
+      </div>
+
+      <!-- Demo Credentials Notice -->
+      <div class="admin-demo-pill">
+        <div class="d-flex align-items-center justify-content-between mb-1">
+          <strong class="d-flex align-items-center gap-1 text-warning-emphasis">
+            <i class="fas fa-key"></i>
+            <span data-i18n="admin_demo_badge">Demonstration System Credentials</span>
+          </strong>
+          <button type="button" id="btn-autofill-demo" class="btn btn-xs btn-outline-warning py-0 px-2 fw-bold text-dark" style="font-size: 0.72rem;">
+            Auto-Fill
+          </button>
+        </div>
+        <div class="font-monospace small" data-i18n="admin_demo_info">Email: admin@123 | Password: 1234567890</div>
+      </div>
+
+      <!-- Security Disclaimer Alert -->
+      <div class="alert alert-warning py-2 px-3 small mb-3">
+        <i class="fas fa-shield-cat me-1"></i>
+        <span data-i18n="admin_security_notice">
+          Notice: This is a static client-side demonstration website. Authentication is simulated using browser JavaScript and LocalStorage. It is not suitable for public production environments.
+        </span>
+      </div>
+
+      <!-- Login Form -->
+      <form id="admin-login-form">
+        <div class="mb-3">
+          <label for="admin-email" class="form-label small fw-bold" data-i18n="label_admin_email">Admin Email / Username</label>
+          <div class="input-group">
+            <span class="input-group-text bg-white"><i class="fas fa-envelope text-muted"></i></span>
+            <input type="text" id="admin-email" class="form-control" placeholder="admin@123" required>
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <label for="admin-password" class="form-label small fw-bold" data-i18n="label_admin_password">Password</label>
+          <div class="input-group">
+            <span class="input-group-text bg-white"><i class="fas fa-lock text-muted"></i></span>
+            <input type="password" id="admin-password" class="form-control" placeholder="••••••••••" required>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-success w-100 py-2 rounded-pill fw-bold shadow-sm" data-i18n="btn_login">
+          Login to Admin Dashboard
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       VIEW 2: Admin Dashboard (Visible upon successful login)
+       ========================================================================== -->
+  <div id="admin-dashboard-view" class="container-fluid px-4 py-4 d-none">
+    <!-- Header Banner -->
+    <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4 pb-3 border-bottom">
+      <div>
+        <h2 class="h3 fw-bold text-dark mb-1" data-i18n="admin_dash_title">Rythu Mitra Schemes Management Dashboard</h2>
+        <div class="d-flex align-items-center gap-2 small text-muted">
+          <span class="badge bg-success-subtle text-success border border-success-subtle px-2 py-1 rounded-pill">
+            <i class="fas fa-circle-check me-1"></i> <span data-i18n="admin_welcome">Logged in as Admin (admin@123)</span>
+          </span>
+          <span>•</span>
+          <span>Storage: Browser LocalStorage</span>
+        </div>
+      </div>
+
+      <div class="d-flex flex-wrap align-items-center gap-2">
+        <button type="button" id="btn-add-new-scheme" class="btn btn-success rounded-pill px-3 fw-bold shadow-sm" data-i18n="btn_add_new">
+          <i class="fas fa-plus me-1"></i> Add New Scheme
+        </button>
+        <button type="button" id="btn-restore-defaults" class="btn btn-outline-secondary rounded-pill px-3 fw-semibold" data-i18n="btn_restore_defaults">
+          <i class="fas fa-rotate me-1"></i> Restore Demonstration Schemes
+        </button>
+        <button type="button" id="btn-admin-logout" class="btn btn-outline-danger rounded-pill px-3 fw-semibold" data-i18n="btn_logout">
+          <i class="fas fa-sign-out-alt me-1"></i> Logout
+        </button>
+      </div>
+    </div>
+
+    <!-- Metrics Cards -->
+    <div class="admin-stats-grid">
+      <div class="admin-stat-card">
+        <div class="admin-stat-icon stat-icon-green">
+          <i class="fas fa-layer-group"></i>
+        </div>
+        <div>
+          <span class="text-muted small fw-semibold" data-i18n="stat_total_schemes">Total Schemes</span>
+          <h3 id="stat-total-val" class="h2 fw-bold text-dark mb-0">0</h3>
+        </div>
+      </div>
+
+      <div class="admin-stat-card">
+        <div class="admin-stat-icon stat-icon-blue">
+          <i class="fas fa-circle-check"></i>
+        </div>
+        <div>
+          <span class="text-muted small fw-semibold" data-i18n="stat_active_schemes">Active Schemes</span>
+          <h3 id="stat-active-val" class="h2 fw-bold text-dark mb-0">0</h3>
+        </div>
+      </div>
+
+      <div class="admin-stat-card">
+        <div class="admin-stat-icon stat-icon-yellow">
+          <i class="fas fa-flag-checkered"></i>
+        </div>
+        <div>
+          <span class="text-muted small fw-semibold" data-i18n="stat_national_schemes">National Schemes</span>
+          <h3 id="stat-national-val" class="h2 fw-bold text-dark mb-0">0</h3>
+        </div>
+      </div>
+
+      <div class="admin-stat-card">
+        <div class="admin-stat-icon stat-icon-purple">
+          <i class="fas fa-map-marked-alt"></i>
+        </div>
+        <div>
+          <span class="text-muted small fw-semibold" data-i18n="stat_state_schemes">State Schemes</span>
+          <h3 id="stat-state-val" class="h2 fw-bold text-dark mb-0">0</h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- Schemes Table Card -->
+    <div class="admin-table-card">
+      <div class="admin-table-toolbar">
+        <div>
+          <h4 class="h5 fw-bold text-dark mb-0" data-i18n="admin_table_title">All Configured Schemes</h4>
+          <span class="small text-muted">Live sync with farmer portal via LocalStorage</span>
+        </div>
+
+        <div class="d-flex flex-wrap align-items-center gap-2">
+          <!-- State Filter -->
+          <select id="admin-state-filter" class="form-select form-select-sm" style="width: 200px;">
+            <option value="">All States / All India</option>
+          </select>
+
+          <!-- Search Input -->
+          <div class="input-group input-group-sm" style="width: 280px;">
+            <span class="input-group-text bg-white"><i class="fas fa-search text-muted"></i></span>
+            <input type="text" id="admin-table-search" class="form-control" placeholder="Filter schemes by name, state..." data-i18n-placeholder="admin_search_placeholder">
+          </div>
+        </div>
+      </div>
+
+      <!-- Schemes Table -->
+      <div class="table-responsive">
+        <table class="table table-hover align-middle">
+          <thead>
+            <tr>
+              <th data-i18n="th_scheme_name">Scheme Name</th>
+              <th data-i18n="th_state">State</th>
+              <th data-i18n="th_district">District</th>
+              <th data-i18n="th_land_criteria">Land Criteria</th>
+              <th data-i18n="th_status">Status</th>
+              <th data-i18n="th_actions" style="width: 140px;">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="admin-schemes-tbody">
+            <!-- Dynamically populated via admin.js -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       MODAL: Add / Edit Government Scheme (Multilingual EN, TE, HI)
+       ========================================================================== -->
+  <div class="modal fade" id="adminSchemeModal" tabindex="-1" aria-labelledby="adminModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title h5" id="adminModalTitle" data-i18n="modal_add_title">Add New Government Scheme</h3>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body">
+          <form id="admin-scheme-form">
+            <!-- Multilingual Tabs Header -->
+            <ul class="nav nav-tabs nav-tabs-i18n" id="schemeLangTabs" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="tab-en-btn" data-bs-toggle="tab" data-bs-target="#tab-en" type="button" role="tab">
+                  <i class="fas fa-globe me-1"></i> English
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="tab-te-btn" data-bs-toggle="tab" data-bs-target="#tab-te" type="button" role="tab">
+                  <i class="fas fa-language me-1"></i> తెలుగు (Telugu)
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="tab-hi-btn" data-bs-toggle="tab" data-bs-target="#tab-hi" type="button" role="tab">
+                  <i class="fas fa-om me-1"></i> हिन्दी (Hindi)
+                </button>
+              </li>
+            </ul>
+
+            <!-- Multilingual Content Tabs -->
+            <div class="tab-content mb-4" id="schemeLangTabsContent">
+              <!-- Tab 1: English (Required) -->
+              <div class="tab-pane fade show active" id="tab-en" role="tabpanel">
+                <div class="row g-3">
+                  <div class="col-12">
+                    <label class="form-label" data-i18n="field_scheme_name">Scheme Name *</label>
+                    <input type="text" id="field-name-en" class="form-control" placeholder="e.g., PM-KISAN (Pradhan Mantri Kisan Samman Nidhi)" required>
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label" data-i18n="field_description">Scheme Description *</label>
+                    <textarea id="field-desc-en" rows="2" class="form-control" placeholder="Provide a concise description of scheme objectives..." required></textarea>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label" data-i18n="field_benefits">Benefits & Financial Assistance *</label>
+                    <textarea id="field-benefits-en" rows="2" class="form-control" placeholder="e.g., ₹6,000 per year in three equal installments..." required></textarea>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label" data-i18n="field_eligibility">Eligibility Criteria *</label>
+                    <textarea id="field-elig-en" rows="2" class="form-control" placeholder="e.g., Landholding farmers families having cultivable land..." required></textarea>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label" data-i18n="field_documents">Required Documents (Comma-separated) *</label>
+                    <input type="text" id="field-docs-en" class="form-control" placeholder="e.g., Aadhaar Card, Land Passbook, Bank Account Details" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label" data-i18n="field_apply_process">Application Procedure *</label>
+                    <input type="text" id="field-apply-en" class="form-control" placeholder="e.g., Apply online at pmkisan.gov.in or through nearest CSC" required>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tab 2: Telugu -->
+              <div class="tab-pane fade" id="tab-te" role="tabpanel">
+                <div class="row g-3">
+                  <div class="col-12">
+                    <label class="form-label">పథకం పేరు (తెలుగు)</label>
+                    <input type="text" id="field-name-te" class="form-control" placeholder="ఉదా: పీఎం-కిసాన్ సమ్మాన్ నిధి">
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label">పథకం వివరణ (తెలుగు)</label>
+                    <textarea id="field-desc-te" rows="2" class="form-control" placeholder="పథకం యొక్క ముఖ్య ఉద్దేశ్యం మరియు వివరాలు..."></textarea>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">ప్రయోజనాలు & ఆర్థిక సాయం (తెలుగు)</label>
+                    <textarea id="field-benefits-te" rows="2" class="form-control" placeholder="ఉదా: ఏడాదికి ₹6,000 పెట్టుబడి సాయం ఖాతాలో జమ..."></textarea>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">అర్హత ప్రమాణాలు (తెలుగు)</label>
+                    <textarea id="field-elig-te" rows="2" class="form-control" placeholder="ఉదా: సాగుభూమి కలిగిన రైతు కుటుంబాలు..."></textarea>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">అవసరమైన పత్రాలు (తెలుగు)</label>
+                    <input type="text" id="field-docs-te" class="form-control" placeholder="ఉదా: ఆధార్ కార్డు, పట్టాదార్ పాసుపుస్తకం, బ్యాంక్ ఖాతా">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">దరఖాస్తు విధానం (తెలుగు)</label>
+                    <input type="text" id="field-apply-te" class="form-control" placeholder="ఉదా: అధికారిక పోర్టల్ లేదా మీ-సేవా ద్వారా దరఖాస్తు చేసుకోవాలి">
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tab 3: Hindi -->
+              <div class="tab-pane fade" id="tab-hi" role="tabpanel">
+                <div class="row g-3">
+                  <div class="col-12">
+                    <label class="form-label">योजना का नाम (हिन्दी)</label>
+                    <input type="text" id="field-name-hi" class="form-control" placeholder="उदा: पीएम-किसान सम्मान निधि">
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label">योजना का विवरण (हिन्दी)</label>
+                    <textarea id="field-desc-hi" rows="2" class="form-control" placeholder="योजना का संक्षिप्त विवरण एवं उद्देश्य..."></textarea>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">लाभ एवं वित्तीय सहायता (हिन्दी)</label>
+                    <textarea id="field-benefits-hi" rows="2" class="form-control" placeholder="उदा: ₹6,000 प्रति वर्ष सीधे बैंक खाते में..."></textarea>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">पात्रता मानदंड (हिन्दी)</label>
+                    <textarea id="field-elig-hi" rows="2" class="form-control" placeholder="उदा: भूमिधारक किसान परिवार..."></textarea>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">आवश्यक दस्तावेज़ (हिन्दी)</label>
+                    <input type="text" id="field-docs-hi" class="form-control" placeholder="उदा: आधार कार्ड, खतौनी/पट्टा, बैंक पासबुक">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">आवेदन प्रक्रिया (हिन्दी)</label>
+                    <input type="text" id="field-apply-hi" class="form-control" placeholder="उदा: आधिकारिक पोर्टल अथवा सीएससी के माध्यम से">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Common Location, Land & Category Fields -->
+            <div class="p-3 bg-surface rounded-3 border mb-3">
+              <h5 class="h6 fw-bold text-dark mb-3">
+                <i class="fas fa-sliders text-success me-1"></i> Location, Land Criteria & Settings
+              </h5>
+              <div class="row g-3">
+                <!-- State -->
+                <div class="col-md-4">
+                  <label for="field-state" class="form-label" data-i18n="field_state">Applicable State *</label>
+                  <select id="field-state" class="form-select" required></select>
+                </div>
+
+                <!-- District -->
+                <div class="col-md-4">
+                  <label for="field-district" class="form-label" data-i18n="field_district">Applicable District *</label>
+                  <select id="field-district" class="form-select" required></select>
+                </div>
+
+                <!-- Village -->
+                <div class="col-md-4">
+                  <label for="field-village" class="form-label" data-i18n="field_village">Applicable Village (Optional)</label>
+                  <input type="text" id="field-village" class="form-control" placeholder="Leave empty for all villages">
+                </div>
+
+                <!-- Min Land -->
+                <div class="col-md-3">
+                  <label for="field-min-land" class="form-label" data-i18n="field_min_land">Minimum Land (Acres)</label>
+                  <input type="number" step="0.01" min="0" id="field-min-land" class="form-control" value="0" required>
+                </div>
+
+                <!-- Max Land -->
+                <div class="col-md-3">
+                  <label for="field-max-land" class="form-label" data-i18n="field_max_land">Maximum Land (Acres)</label>
+                  <input type="number" step="0.01" min="0" id="field-max-land" class="form-control" value="999" required>
+                </div>
+
+                <!-- Category -->
+                <div class="col-md-3">
+                  <label for="field-category" class="form-label" data-i18n="field_category">Scheme Category *</label>
+                  <select id="field-category" class="form-select" required>
+                    <option value="Financial Assistance">Financial Assistance / Income Support</option>
+                    <option value="Irrigation & Water">Irrigation & Water Infrastructure</option>
+                    <option value="Farm Machinery">Farm Machinery & Mechanization</option>
+                    <option value="Crop Insurance">Crop Insurance & Risk Safety</option>
+                    <option value="Agricultural Credit">Agricultural Credit & Loans</option>
+                  </select>
+                </div>
+
+                <!-- Status -->
+                <div class="col-md-3">
+                  <label for="field-status" class="form-label" data-i18n="field_status">Scheme Status *</label>
+                  <select id="field-status" class="form-select" required>
+                    <option value="active">Active (Visible to Farmers)</option>
+                    <option value="inactive">Inactive (Hidden)</option>
+                  </select>
+                </div>
+
+                <!-- Official URL -->
+                <div class="col-12">
+                  <label for="field-url" class="form-label" data-i18n="field_official_url">Official Application URL *</label>
+                  <input type="url" id="field-url" class="form-control" placeholder="https://..." required>
+                </div>
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-end gap-2 mt-4">
+              <button type="button" class="btn btn-secondary rounded-pill px-4" data-bs-dismiss="modal" data-i18n="btn_cancel">Cancel</button>
+              <button type="submit" class="btn btn-success rounded-pill px-4 fw-bold" data-i18n="btn_save_scheme">
+                <i class="fas fa-check me-1"></i> Save Scheme
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       MODAL: Delete Confirmation
+       ========================================================================== -->
+  <div class="modal fade" id="deleteConfirmModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header bg-danger text-white">
+          <h3 class="modal-title h5">
+            <i class="fas fa-triangle-exclamation me-1"></i> Confirm Scheme Deletion
+          </h3>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-4">
+          <p class="mb-2" data-i18n="confirm_delete">Are you sure you want to delete this scheme? This will immediately remove it from the farmer portal.</p>
+          <div class="alert alert-secondary fw-bold small mb-0" id="deleteSchemeName">Scheme Name</div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary rounded-pill px-3" data-bs-dismiss="modal" data-i18n="btn_cancel">Cancel</button>
+          <button type="button" id="btn-confirm-delete" class="btn btn-danger rounded-pill px-4 fw-bold" data-i18n="btn_delete">
+            <i class="fas fa-trash-alt me-1"></i> Delete Scheme
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       MODAL: Restore Defaults Confirmation
+       ========================================================================== -->
+  <div class="modal fade" id="restoreConfirmModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header bg-warning text-dark">
+          <h3 class="modal-title h5">
+            <i class="fas fa-rotate me-1"></i> Restore Default Schemes
+          </h3>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-4">
+          <p class="mb-0" data-i18n="confirm_restore">
+            Are you sure you want to restore all initial demonstration schemes? Any custom added schemes will be reset.
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary rounded-pill px-3" data-bs-dismiss="modal" data-i18n="btn_cancel">Cancel</button>
+          <button type="button" id="btn-confirm-restore" class="btn btn-warning rounded-pill px-4 fw-bold">
+            <i class="fas fa-rotate me-1"></i> Confirm Restore
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Bootstrap 5.3 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+  <!-- Application Logic Scripts -->
+  <script src="js/translations.js"></script>
+  <script src="js/schemes.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
